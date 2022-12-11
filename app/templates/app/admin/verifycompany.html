@@ -1,0 +1,75 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static '/company/cprofile/fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static '/company/cprofile/css/owl.carousel.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static '/company/cprofile/css/bootstrap.min.css' %}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static '/company/cprofile/css/style.css' %}">
+
+    <title>Company profile</title>
+  </head>
+  <body>
+  
+
+  <div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div>
+    <div class="contents order-2 order-md-1">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-7 py-5">
+            <h3>Verify a Company</h3>
+            {% if msg %}
+            <center><h4 style="color:green">{{msg}}</h4></center>
+            {% endif %}
+            <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
+            <form action="{% url 'verifycompany' pk=comp.id %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+            
+            
+
+              <div class="form-group last mb-3">
+                <label for="text">Verify Company</label>
+                <select name="verify" id="" class="form-control">
+                  <option value="">Select here</option>
+                  <option value="True">True</option>
+                  <option value="False">False</option>
+                </select>
+              </div>
+            
+            
+          
+              
+            
+
+              <input type="submit" value="Register" class="btn px-5 btn-primary">
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+    
+    
+
+    <script src="{% static '/company/js/jquery-3.3.1.min.js' %} "></script>
+    <script src="{% static '/company/js/popper.min.js' %} "></script>
+    <script src="{% static '/company/js/bootstrap.min.js' %} "></script>
+    <script src="{% static '/company/js/main.js' %} "></script>
+  </body>
+</html>

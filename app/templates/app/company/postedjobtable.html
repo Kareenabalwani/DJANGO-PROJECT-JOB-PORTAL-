@@ -1,0 +1,79 @@
+{% extends "app/company/cbase1.html" %}
+{% block content %}
+
+
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Posted Jobs Details</h1>
+                 
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Posted Jobs</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                   
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Position</th>
+                                            <th>Skills</th>
+                                            <th>Qualification</th>
+                                            <th>Work Mode</th>
+                                            <th>Timimgs</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    {%  if all_jobs %}
+{% for i in all_jobs %}
+                                   
+                                    <tbody>
+                                        <tr>
+                                            <td>{{i.companyname}}</td>
+                                            <td>{{i.jobname}}</td>
+                                            <td>{{i.skills}}</td>
+                                            <td>{{i.qualification}}</td>
+                                            <td>{{i.workmode}}</td>
+                                            <td>{{i.timing}}</td>
+                                            <td>{{i.salary}}</td>
+                                        </tr>
+                                
+                                    </tbody>
+{% endfor %}
+                                    <tfoot>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Position</th>
+                                            <th>Skills</th>
+                                            <th>Qualification</th>
+                                            <th>Work Mode</th>
+                                            <th>Timimgs</th>
+                                            <th>Salary</th>
+                                            
+                                        </tr>
+                                    </tfoot>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+     
+            <!-- End of Footer -->
+{% endblock %}
+      
+

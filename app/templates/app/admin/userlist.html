@@ -1,0 +1,78 @@
+{% extends "app/admin/abase1.html" %}
+{% block content %}
+
+
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Registered User Details</h1>
+                 
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary"></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                   
+                                    <thead>
+                                        <tr>
+                                            <th>Email</th>
+                                            <th>is_Created</th>
+                                            <th>is_Updated</th>
+                                            <th>Delete</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    {%  if cand %}
+{% for i in cand %}
+                                   
+                                    <tbody>
+                                        <tr>
+                                            <td>{{i.email}}</td>
+                                            <td>{{i.is_created}}</td>
+                                            <td>{{i.is_updated}}</td>
+                                            <td><form action="{% url 'userdelete' pk=i.id %}">
+                                                {% csrf_token %}
+                                                <input type="submit" value="Delete" >
+                                            </form></td>
+                                            
+                                        </tr>
+                                
+                                    </tbody>
+{% endfor %}
+                                    <tfoot>
+                                        <tr>
+                                            <tr>
+                                            <th>Email</th>
+                                            <th>is_Created</th>
+                                            <th>is_Updated</th>
+                                            <th>Delete</th>
+                                            
+                                        </tr>
+                                            
+                                        </tr>
+                                    </tfoot>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+     
+            <!-- End of Footer -->
+{% endblock %}
+      
+
